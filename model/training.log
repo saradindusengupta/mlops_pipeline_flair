@@ -1,0 +1,112 @@
+2024-02-15 01:50:33,722 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,724 Model: "TextClassifier(
+  (embeddings): TransformerDocumentEmbeddings(
+    (model): DistilBertModel(
+      (embeddings): Embeddings(
+        (word_embeddings): Embedding(30523, 768)
+        (position_embeddings): Embedding(512, 768)
+        (LayerNorm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+        (dropout): Dropout(p=0.1, inplace=False)
+      )
+      (transformer): Transformer(
+        (layer): ModuleList(
+          (0-5): 6 x TransformerBlock(
+            (attention): MultiHeadSelfAttention(
+              (dropout): Dropout(p=0.1, inplace=False)
+              (q_lin): Linear(in_features=768, out_features=768, bias=True)
+              (k_lin): Linear(in_features=768, out_features=768, bias=True)
+              (v_lin): Linear(in_features=768, out_features=768, bias=True)
+              (out_lin): Linear(in_features=768, out_features=768, bias=True)
+            )
+            (sa_layer_norm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+            (ffn): FFN(
+              (dropout): Dropout(p=0.1, inplace=False)
+              (lin1): Linear(in_features=768, out_features=3072, bias=True)
+              (lin2): Linear(in_features=3072, out_features=768, bias=True)
+              (activation): GELUActivation()
+            )
+            (output_layer_norm): LayerNorm((768,), eps=1e-12, elementwise_affine=True)
+          )
+        )
+      )
+    )
+  )
+  (decoder): Linear(in_features=768, out_features=2, bias=True)
+  (dropout): Dropout(p=0.0, inplace=False)
+  (locked_dropout): LockedDropout(p=0.0)
+  (word_dropout): WordDropout(p=0.0)
+  (loss_function): CrossEntropyLoss()
+  (weights): None
+  (weight_tensor) None
+)"
+2024-02-15 01:50:33,725 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,727 Corpus: 100000 train + 50000 dev + 50000 test sentences
+2024-02-15 01:50:33,728 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,728 Train:  100000 sentences
+2024-02-15 01:50:33,729         (train_with_dev=False, train_with_test=False)
+2024-02-15 01:50:33,730 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,730 Training Params:
+2024-02-15 01:50:33,731  - learning_rate: "5e-05" 
+2024-02-15 01:50:33,732  - mini_batch_size: "16"
+2024-02-15 01:50:33,733  - max_epochs: "2"
+2024-02-15 01:50:33,734  - shuffle: "True"
+2024-02-15 01:50:33,735 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,736 Plugins:
+2024-02-15 01:50:33,736  - LinearScheduler | warmup_fraction: '0.1'
+2024-02-15 01:50:33,737 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,738 Final evaluation on model after last epoch (final-model.pt)
+2024-02-15 01:50:33,739  - metric: "('micro avg', 'f1-score')"
+2024-02-15 01:50:33,739 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,740 Computation:
+2024-02-15 01:50:33,740  - compute on device: cuda:0
+2024-02-15 01:50:33,741  - embedding storage: none
+2024-02-15 01:50:33,742 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,742 Model training base path: "/home/saradindu/dev/mlops_pipeline_flair/model"
+2024-02-15 01:50:33,743 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:50:33,744 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:51:45,969 epoch 1 - iter 625/6250 - loss 0.64502749 - time (sec): 72.22 - samples/sec: 138.46 - lr: 0.000025 - momentum: 0.000000
+2024-02-15 01:52:57,951 epoch 1 - iter 1250/6250 - loss 0.64658868 - time (sec): 144.21 - samples/sec: 138.69 - lr: 0.000050 - momentum: 0.000000
+2024-02-15 01:53:51,474 epoch 1 - iter 1875/6250 - loss 0.64586535 - time (sec): 197.73 - samples/sec: 151.72 - lr: 0.000047 - momentum: 0.000000
+2024-02-15 01:54:38,187 epoch 1 - iter 2500/6250 - loss 0.64371272 - time (sec): 244.44 - samples/sec: 163.64 - lr: 0.000044 - momentum: 0.000000
+2024-02-15 01:55:26,193 epoch 1 - iter 3125/6250 - loss 0.64213044 - time (sec): 292.45 - samples/sec: 170.97 - lr: 0.000042 - momentum: 0.000000
+2024-02-15 01:56:13,187 epoch 1 - iter 3750/6250 - loss 0.63952776 - time (sec): 339.44 - samples/sec: 176.76 - lr: 0.000039 - momentum: 0.000000
+2024-02-15 01:57:00,241 epoch 1 - iter 4375/6250 - loss 0.63750715 - time (sec): 386.50 - samples/sec: 181.11 - lr: 0.000036 - momentum: 0.000000
+2024-02-15 01:57:47,195 epoch 1 - iter 5000/6250 - loss 0.63538186 - time (sec): 433.45 - samples/sec: 184.57 - lr: 0.000033 - momentum: 0.000000
+2024-02-15 01:58:34,126 epoch 1 - iter 5625/6250 - loss 0.63348917 - time (sec): 480.38 - samples/sec: 187.35 - lr: 0.000031 - momentum: 0.000000
+2024-02-15 01:59:21,740 epoch 1 - iter 6250/6250 - loss 0.63089388 - time (sec): 528.00 - samples/sec: 189.40 - lr: 0.000028 - momentum: 0.000000
+2024-02-15 01:59:21,744 ----------------------------------------------------------------------------------------------------
+2024-02-15 01:59:21,744 EPOCH 1 done: loss 0.6309 - lr: 0.000028
+2024-02-15 02:00:20,552 DEV : loss 0.5970726609230042 - f1-score (micro avg)  0.6946
+2024-02-15 02:00:27,587 ----------------------------------------------------------------------------------------------------
+2024-02-15 02:01:15,963 epoch 2 - iter 625/6250 - loss 0.58762203 - time (sec): 48.38 - samples/sec: 206.72 - lr: 0.000025 - momentum: 0.000000
+2024-02-15 02:02:04,589 epoch 2 - iter 1250/6250 - loss 0.58750381 - time (sec): 97.00 - samples/sec: 206.18 - lr: 0.000022 - momentum: 0.000000
+2024-02-15 02:02:53,203 epoch 2 - iter 1875/6250 - loss 0.58771694 - time (sec): 145.62 - samples/sec: 206.02 - lr: 0.000019 - momentum: 0.000000
+2024-02-15 02:03:40,738 epoch 2 - iter 2500/6250 - loss 0.58723556 - time (sec): 193.15 - samples/sec: 207.09 - lr: 0.000017 - momentum: 0.000000
+2024-02-15 02:04:29,036 epoch 2 - iter 3125/6250 - loss 0.58658684 - time (sec): 241.45 - samples/sec: 207.08 - lr: 0.000014 - momentum: 0.000000
+2024-02-15 02:05:16,484 epoch 2 - iter 3750/6250 - loss 0.58653806 - time (sec): 288.90 - samples/sec: 207.69 - lr: 0.000011 - momentum: 0.000000
+2024-02-15 02:06:03,555 epoch 2 - iter 4375/6250 - loss 0.58480701 - time (sec): 335.97 - samples/sec: 208.35 - lr: 0.000008 - momentum: 0.000000
+2024-02-15 02:06:51,786 epoch 2 - iter 5000/6250 - loss 0.58370964 - time (sec): 384.20 - samples/sec: 208.23 - lr: 0.000006 - momentum: 0.000000
+2024-02-15 02:07:40,413 epoch 2 - iter 5625/6250 - loss 0.58276976 - time (sec): 432.83 - samples/sec: 207.94 - lr: 0.000003 - momentum: 0.000000
+2024-02-15 02:08:28,648 epoch 2 - iter 6250/6250 - loss 0.58139204 - time (sec): 481.06 - samples/sec: 207.87 - lr: 0.000000 - momentum: 0.000000
+2024-02-15 02:08:28,652 ----------------------------------------------------------------------------------------------------
+2024-02-15 02:08:28,653 EPOCH 2 done: loss 0.5814 - lr: 0.000000
+2024-02-15 02:09:27,719 DEV : loss 0.5921458005905151 - f1-score (micro avg)  0.7003
+2024-02-15 02:09:34,409 ----------------------------------------------------------------------------------------------------
+2024-02-15 02:09:34,410 Testing using last state of model ...
+2024-02-15 02:10:31,946 
+Results:
+- F-score (micro) 0.6965
+- F-score (macro) 0.5612
+- Accuracy 0.6965
+
+By class:
+              precision    recall  f1-score   support
+
+           0     0.7056    0.9366    0.8049     33414
+           1     0.6249    0.2128    0.3175     16586
+
+    accuracy                         0.6965     50000
+   macro avg     0.6653    0.5747    0.5612     50000
+weighted avg     0.6788    0.6965    0.6432     50000
+
+2024-02-15 02:10:31,947 ----------------------------------------------------------------------------------------------------

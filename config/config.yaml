@@ -1,0 +1,7 @@
+fine_tuning:
+  learning_rate: 5.0e-5
+  mini_batch_size: 16
+  max_epochs: 2
+webhooks:
+  ms_teams: "dummy"
+  webhook_payload: "dummy"

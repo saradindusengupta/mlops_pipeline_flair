@@ -2,7 +2,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 import os
-
 # Load the required modules from Flair.
 from flair.models import TextClassifier
 from flair.data import Sentence
@@ -17,12 +16,8 @@ class Case(BaseModel):
     text: str
 
 
-# Load the model in as a global variable.
-classifier = TextClassifier.load(f"{working_dir}model/final-model.pt")
-
 # Define the prediction function.
-def classify_text(classifier, sentence):
-
+def text_classifier(classifier, text: str):
     """
     A small function to classify the incoming string.
     ------------------------
@@ -33,21 +28,26 @@ def classify_text(classifier, sentence):
     Output:
     A list of tuples containing labels & probabilities.
     """
+    try:
+        sentence = Sentence(text)
+        classifier.predict(sentence)
+        return sentence.to_dict()
+    except Exception as e:
+        print(e)
 
-    sentence = Sentence(sentence)
-    classifier.predict(sentence)
-    return sentence.labels
-
+def text_ops(text: str):
+    return text.split(".")
 
 # Initialize the FastAPI endpoint.
 app = FastAPI()
 
 # Set the address and await calls.
 @app.post("/classify-text")
-async def classify_text_endpoint(Case: Case):
+async def classify_text_endpoint(body: Case):
     """Takes the text request and returns a record with the labels & associated probabilities."""
-
+    
+    classifier = TextClassifier.load(f"{working_dir}model/final-model.pt")
     # Use the pretrained model to classify the incoming text in the request.
-    classified_text = classify_text(classifier, Case.text)
+    classified_text = text_classifier(classifier, body.text)
 
     return classified_text

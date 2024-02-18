@@ -137,3 +137,6 @@ data/*
 # model
 model/*.pt
 notebooks/wandb/*
+
+#vscode
+.vscode/*

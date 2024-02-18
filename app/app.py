@@ -35,9 +35,6 @@ def text_classifier(classifier, text: str):
     except Exception as e:
         print(e)
 
-def text_ops(text: str):
-    return text.split(".")
-
 # Initialize the FastAPI endpoint.
 app = FastAPI()
 

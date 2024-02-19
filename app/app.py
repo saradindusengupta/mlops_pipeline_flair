@@ -57,3 +57,10 @@ async def classify_text_endpoint(body: Case):
     classified_text = text_classifier(classifier, body.text)
 
     return classified_text
+@app.get("/info")
+def info():
+    """General Information"""
+    
+    response = {'version': '0.0.1', 'author': 'saradindu'}
+
+    return response

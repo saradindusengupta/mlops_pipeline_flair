@@ -1,6 +1,7 @@
 # Load the libraries.
 from fastapi import FastAPI
 from pydantic import BaseModel
+from starlette.middleware.cors import CORSMiddleware
 import os
 # Load the required modules from Flair.
 from flair.models import TextClassifier
@@ -37,6 +38,14 @@ def text_classifier(classifier, text: str):
 
 # Initialize the FastAPI endpoint.
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    expose_headers=["*"]
+)
 
 # Set the address and await calls.
 @app.post("/classify-text")
